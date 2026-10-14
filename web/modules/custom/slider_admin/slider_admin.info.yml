@@ -1,0 +1,13 @@
+name: 'Slider Admin'
+type: module
+description: 'Homepage slider whose slides are managed from the admin panel (image, title, text, link, order and visibility).'
+package: Custom
+core_version_requirement: ^10.3 || ^11
+version: 1.0.0
+configure: entity.slider_slide.collection
+dependencies:
+  - drupal:file
+  - drupal:image
+  - drupal:link
+'interface translation project': slider_admin
+'interface translation server pattern': modules/custom/slider_admin/translations/%language.po

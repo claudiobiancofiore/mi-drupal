@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - slider_admin
+name: slider_admin_full
+label: 'Slider (1600×600)'
+effects:
+  4f7c2b1e-8a3d-4c6e-9b2f-1d5e7a9c3b10:
+    uuid: 4f7c2b1e-8a3d-4c6e-9b2f-1d5e7a9c3b10
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 600
+      anchor: center-center

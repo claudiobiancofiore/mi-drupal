@@ -1,0 +1,10 @@
+slider:
+  version: VERSION
+  css:
+    component:
+      css/slider.css: {}
+  js:
+    js/slider.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

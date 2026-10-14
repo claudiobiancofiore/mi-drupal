@@ -1,0 +1,6 @@
+entity.slider_slide.collection:
+  title: 'Slider'
+  description: 'Manage the slides shown in the slider.'
+  route_name: entity.slider_slide.collection
+  parent: system.admin_content
+  weight: 20

@@ -1,0 +1,88 @@
+{#
+/**
+ * @file
+ * Markup for the Slider Admin block.
+ *
+ * To change it, copy this file to your theme's "templates" folder and
+ * clear the cache.
+ *
+ * Available variables:
+ * - slides: List of slides, each one with:
+ *   - title: The slide title.
+ *   - subtitle: Optional text under the title (line breaks are kept).
+ *   - url: Optional link URL.
+ *   - link_text: Optional button label.
+ *   - image: Render array of the image.
+ * - slider_id: Unique HTML id for this slider.
+ * - autoplay: Whether slides rotate automatically.
+ * - interval: Milliseconds per slide.
+ * - label: Accessible name of the slider.
+ * - attributes: HTML attributes for the wrapper.
+ */
+#}
+{% set items_id = slider_id ~ '-items' %}
+{% set total = slides|length %}
+<section{{ attributes
+  .addClass('slider-admin')
+  .setAttribute('id', slider_id)
+  .setAttribute('aria-roledescription', 'carousel'|t)
+  .setAttribute('aria-label', label)
+  .setAttribute('data-autoplay', autoplay ? 'true' : 'false')
+  .setAttribute('data-interval', interval) }}>
+
+  {% if total > 1 %}
+    <div class="slider-admin__controls">
+      {% if autoplay %}
+        <button type="button" class="slider-admin__btn slider-admin__toggle"
+          aria-controls="{{ items_id }}"
+          aria-label="{{ 'Stop automatic slide show'|t }}"
+          data-label-pause="{{ 'Stop automatic slide show'|t }}"
+          data-label-play="{{ 'Start automatic slide show'|t }}">
+          <svg class="slider-admin__icon-pause" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+          <svg class="slider-admin__icon-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+      {% endif %}
+
+      <button type="button" class="slider-admin__btn slider-admin__prev" aria-controls="{{ items_id }}" aria-label="{{ 'Previous slide'|t }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg>
+      </button>
+
+      <div class="slider-admin__dots" role="group" aria-label="{{ 'Choose slide to display'|t }}">
+        {% for slide in slides %}
+          <button type="button" class="slider-admin__dot"
+            aria-controls="{{ items_id }}"
+            aria-label="{{ 'Slide @number: @title'|t({'@number': loop.index, '@title': slide.title}) }}"
+            data-index="{{ loop.index0 }}"
+            {% if loop.first %}aria-current="true"{% endif %}></button>
+        {% endfor %}
+      </div>
+
+      <button type="button" class="slider-admin__btn slider-admin__next" aria-controls="{{ items_id }}" aria-label="{{ 'Next slide'|t }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.6 16.6 10 18l6-6-6-6-1.4 1.4 4.6 4.6z"/></svg>
+      </button>
+    </div>
+  {% endif %}
+
+  <div class="slider-admin__viewport" id="{{ items_id }}" aria-live="{{ autoplay ? 'off' : 'polite' }}">
+    {% for slide in slides %}
+      <div class="slider-admin__slide{{ loop.first ? ' is-active' }}"
+        role="group"
+        aria-roledescription="{{ 'slide'|t }}"
+        aria-label="{{ '@current of @total'|t({'@current': loop.index, '@total': total}) }}"
+        {% if not loop.first %}inert{% endif %}>
+        <div class="slider-admin__media">
+          {{ slide.image }}
+        </div>
+        <div class="slider-admin__caption">
+          <h2 class="slider-admin__title">{{ slide.title }}</h2>
+          {% if slide.subtitle %}
+            <p class="slider-admin__text">{{ slide.subtitle|nl2br }}</p>
+          {% endif %}
+          {% if slide.url %}
+            <a class="slider-admin__link" href="{{ slide.url }}">{{ slide.link_text ?: 'See more'|t }}</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

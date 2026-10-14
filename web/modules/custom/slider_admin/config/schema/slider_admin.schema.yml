@@ -1,0 +1,13 @@
+block.settings.slider_admin_block:
+  type: block_settings
+  label: 'Slider block settings'
+  mapping:
+    autoplay:
+      type: boolean
+      label: 'Rotate slides automatically'
+    interval:
+      type: integer
+      label: 'Seconds per slide'
+    aria_label:
+      type: label
+      label: 'Name for screen readers'

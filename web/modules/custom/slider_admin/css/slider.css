@@ -1,0 +1,205 @@
+/**
+ * @file
+ * Slider Admin styles. Colors can be changed from the theme by overriding
+ * the custom properties below.
+ */
+
+.slider-admin {
+  --slider-accent: #0072bb;
+  --slider-accent-contrast: #fff;
+  --slider-caption-bg: linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.35) 60%, rgba(0, 0, 0, 0) 100%);
+  --slider-caption-color: #fff;
+  --slider-ratio: 8 / 3;
+  --slider-speed: 0.6s;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-block: 0 2rem;
+  background: #1b1b1b;
+}
+
+/* All slides share the same cell, so the tallest one sets the height. */
+.slider-admin__viewport {
+  display: grid;
+}
+
+.slider-admin__slide {
+  position: relative;
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--slider-speed) ease, visibility 0s linear var(--slider-speed);
+}
+
+.slider-admin__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--slider-speed) ease, visibility 0s;
+}
+
+.slider-admin__media {
+  aspect-ratio: var(--slider-ratio);
+}
+
+.slider-admin__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-admin__caption {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  width: min(100%, 44rem);
+  padding: 2rem 3rem 4.5rem;
+  color: var(--slider-caption-color);
+  background: var(--slider-caption-bg);
+}
+
+.slider-admin__title {
+  margin: 0;
+  font-size: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  line-height: 1.15;
+  color: inherit;
+}
+
+.slider-admin__text {
+  margin: 0;
+  max-width: 36rem;
+  font-size: 1.125rem;
+  line-height: 1.45;
+}
+
+.slider-admin__link {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--slider-accent-contrast);
+  background: var(--slider-accent);
+}
+
+.slider-admin__link:hover {
+  text-decoration: underline;
+}
+
+/* Controls: pause, previous, dots, next. */
+.slider-admin__controls {
+  position: absolute;
+  z-index: 2;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.slider-admin__btn {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider-admin__btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.slider-admin__btn svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+.slider-admin__icon-play,
+.slider-admin__toggle.is-paused .slider-admin__icon-pause {
+  display: none;
+}
+
+.slider-admin__toggle.is-paused .slider-admin__icon-play {
+  display: block;
+}
+
+.slider-admin__dots {
+  display: flex;
+  gap: 0.15rem;
+}
+
+/* The visible dot is small, but the clickable area is 24×24 px. */
+.slider-admin__dot {
+  position: relative;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider-admin__dot::before {
+  position: absolute;
+  inset: 0.45rem;
+  content: "";
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.slider-admin__dot[aria-current="true"]::before {
+  background: #fff;
+}
+
+.slider-admin :focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+}
+
+/* Phones: caption and controls go under the image. */
+@media (max-width: 47.99em) {
+  .slider-admin {
+    --slider-ratio: 16 / 9;
+  }
+
+  .slider-admin__controls {
+    position: static;
+    order: 2;
+    justify-content: center;
+    border-radius: 0;
+    background: #1b1b1b;
+  }
+
+  .slider-admin__caption {
+    position: static;
+    width: 100%;
+    padding: 1.25rem 1rem;
+    background: #1b1b1b;
+  }
+
+  .slider-admin__text {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slider-admin__slide,
+  .slider-admin__slide.is-active {
+    transition: none;
+  }
+}

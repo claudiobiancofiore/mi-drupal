@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - slider_admin
+name: slider_admin_thumbnail
+label: 'Slider thumbnail (160×60)'
+effects:
+  9a1e6d3c-2b7f-4e8a-a5c1-6f3d8b2e4a77:
+    uuid: 9a1e6d3c-2b7f-4e8a-a5c1-6f3d8b2e4a77
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 160
+      height: 60
+      anchor: center-center

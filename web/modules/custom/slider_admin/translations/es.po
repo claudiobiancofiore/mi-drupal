@@ -1,0 +1,140 @@
+# Spanish translation of Slider Admin.
+msgid ""
+msgstr ""
+"Project-Id-Version: slider_admin 1.0.0\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Slider Admin"
+msgstr "Slider administrable"
+
+msgid "Homepage slider whose slides are managed from the admin panel (image, title, text, link, order and visibility)."
+msgstr "Slider de portada cuyas diapositivas se gestionan desde el panel de administración (imagen, título, texto, enlace, orden y visibilidad)."
+
+msgid "Administer slider slides"
+msgstr "Administrar las diapositivas del slider"
+
+msgid "Create, edit, reorder and delete the slides shown in the slider."
+msgstr "Crear, editar, reordenar y eliminar las diapositivas que muestra el slider."
+
+msgid "Slider"
+msgstr "Slider"
+
+msgid "Manage the slides shown in the slider."
+msgstr "Gestionar las diapositivas que muestra el slider."
+
+msgid "Add slide"
+msgstr "Agregar diapositiva"
+
+msgid "Slider Admin lets editors manage the site slider without touching code. Create slides at <a href=\":url\">Content » Slider</a>, drag them to change the order, and place the <em>Slider</em> block in any region from the block layout."
+msgstr "Slider administrable permite gestionar el slider del sitio sin tocar código. Creá las diapositivas en <a href=\":url\">Contenido » Slider</a>, arrastralas para cambiar el orden y ubicá el bloque <em>Slider</em> en cualquier región desde el diseño de bloques."
+
+msgid "Drag the slides to change the order in which they are shown, then click <em>Save order</em>. Hidden slides are kept but not displayed on the site."
+msgstr "Arrastrá las diapositivas para cambiar el orden en que se muestran y después hacé clic en <em>Guardar orden</em>. Las diapositivas ocultas se conservan pero no aparecen en el sitio."
+
+msgid "Slide"
+msgstr "Diapositiva"
+
+msgid "slide"
+msgstr "diapositiva"
+
+msgid "slides"
+msgstr "diapositivas"
+
+msgid "@count slide"
+msgid_plural "@count slides"
+msgstr[0] "@count diapositiva"
+msgstr[1] "@count diapositivas"
+
+msgid "Main text of the slide."
+msgstr "Texto principal de la diapositiva."
+
+msgid "Text"
+msgstr "Texto"
+
+msgid "Optional short text shown under the title."
+msgstr "Texto breve opcional que se muestra debajo del título."
+
+msgid "Recommended size: 1600×600 pixels. It will be cropped automatically."
+msgstr "Tamaño recomendado: 1600×600 píxeles. Se recorta automáticamente."
+
+msgid "Optional. Internal path (for example /tramites) or full URL. The link text is the button label."
+msgstr "Opcional. Ruta interna (por ejemplo /tramites) o URL completa. El texto del enlace es la etiqueta del botón."
+
+msgid "Visible on the site"
+msgstr "Visible en el sitio"
+
+msgid "Uncheck to hide the slide without deleting it."
+msgstr "Destildá para ocultar la diapositiva sin eliminarla."
+
+msgid "Position of the slide. Lower values are shown first."
+msgstr "Posición de la diapositiva. Los valores más bajos se muestran primero."
+
+msgid "There are no slides yet. Use the <em>Add slide</em> button to create the first one."
+msgstr "Todavía no hay diapositivas. Usá el botón <em>Agregar diapositiva</em> para crear la primera."
+
+msgid "Visible"
+msgstr "Visible"
+
+msgid "Not visible"
+msgstr "No visible"
+
+msgid "Weight for @title"
+msgstr "Peso de @title"
+
+msgid "Save order"
+msgstr "Guardar orden"
+
+msgid "The slider order has been saved."
+msgstr "Se guardó el orden del slider."
+
+msgid "The slide %title has been created."
+msgstr "Se creó la diapositiva %title."
+
+msgid "The slide %title has been updated."
+msgstr "Se actualizó la diapositiva %title."
+
+msgid "Rotate slides automatically"
+msgstr "Rotar las diapositivas automáticamente"
+
+msgid "A pause button is always shown, and rotation stops while the mouse or keyboard focus is on the slider."
+msgstr "Siempre se muestra un botón de pausa, y la rotación se detiene mientras el mouse o el foco del teclado están sobre el slider."
+
+msgid "Seconds per slide"
+msgstr "Segundos por diapositiva"
+
+msgid "Name for screen readers"
+msgstr "Nombre para lectores de pantalla"
+
+msgid "Describes the slider for people using assistive technology, for example \"Featured news\"."
+msgstr "Describe el slider para quienes usan tecnologías de asistencia, por ejemplo \"Noticias destacadas\"."
+
+msgid "carousel"
+msgstr "carrusel"
+
+msgid "Stop automatic slide show"
+msgstr "Detener la rotación automática"
+
+msgid "Start automatic slide show"
+msgstr "Iniciar la rotación automática"
+
+msgid "Previous slide"
+msgstr "Diapositiva anterior"
+
+msgid "Next slide"
+msgstr "Diapositiva siguiente"
+
+msgid "Choose slide to display"
+msgstr "Elegir la diapositiva a mostrar"
+
+msgid "Slide @number: @title"
+msgstr "Diapositiva @number: @title"
+
+msgid "@current of @total"
+msgstr "@current de @total"
+
+msgid "See more"
+msgstr "Ver más"

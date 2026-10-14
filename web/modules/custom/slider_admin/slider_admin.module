@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Hooks for the Slider Admin module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function slider_admin_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.slider_admin':
+      return '<p>' . t('Slider Admin lets editors manage the site slider without touching code. Create slides at <a href=":url">Content » Slider</a>, drag them to change the order, and place the <em>Slider</em> block in any region from the block layout.', [
+        ':url' => Url::fromRoute('entity.slider_slide.collection')->toString(),
+      ]) . '</p>';
+
+    case 'entity.slider_slide.collection':
+      return '<p>' . t('Drag the slides to change the order in which they are shown, then click <em>Save order</em>. Hidden slides are kept but not displayed on the site.') . '</p>';
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function slider_admin_theme($existing, $type, $theme, $path) {
+  return [
+    'slider_admin' => [
+      'variables' => [
+        'slides' => [],
+        'slider_id' => NULL,
+        'autoplay' => TRUE,
+        'interval' => 6000,
+        'label' => NULL,
+      ],
+    ],
+  ];
+}
